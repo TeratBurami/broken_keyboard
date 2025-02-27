@@ -8,9 +8,7 @@ RUN apt-get update && apt-get install -y \
     mkdir /var/run/sshd
 
 # Create CTF user and set password
-RUN useradd -m -s /bin/bash ctfuser && \
-    echo "ctfr2:ctfriend2" | chpasswd && \
-    mkdir -p /home/ctfuser/.ssh
+RUN useradd -m -s /bin/bash ctfuser
 
 # Restrict shell input (no letters allowed)
 RUN echo 'bind -r a' >> /home/ctfuser/.bashrc && \
